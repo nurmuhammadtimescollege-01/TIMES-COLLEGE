@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="ms">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Times College</title>
+    
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    z-index: 1000;
+}
+
+        .logo {
+    font-size: 30px;
+    font-weight: bold;
+    color: #1646A3;
+    letter-spacing: 1px;
+}
+
+        .nav-links {
+    display: flex;
+    gap: 38px;
+    list-style: none;
+}
+
+.nav-links a {
+    position: relative;
+    text-decoration: none;
+    color: #333;
+    font-size: 17px;
+    font-weight: 500;
+    padding: 8px 0;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #1646A3;
+}
+.nav-links a.active {
+    color: #1646A3;
+}
+
+.nav-links a.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background: #1646A3;
+    border-radius: 5px;
+}
+
+        /* HERO */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: left;
+    padding: 120px 8% 60px;
+
+    background-image:
+    linear-gradient(
+        90deg,
+        rgba(10, 45, 100, 0.90) 0%,
+        rgba(10, 45, 100, 0.65) 35%,
+        rgba(10, 45, 100, 0.15) 65%,
+        rgba(10, 45, 100, 0) 100%
+    ),
+    url("images/timescollege.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: white;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.welcome {
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 8px;
+    color: #fc0404;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: 65px;
+    color: #fafbfc;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.hero p {
+    font-size: 20px;
+    line-height: 1.7;
+    color: #FFFFFF;
+    margin-bottom: 35px;
+}
+
+/* HERO STATS */
+.hero-stats {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-top: 35px;
+}
+
+.hero-stats > div {
+    min-width: 130px;
+    text-align: center;
+}
+
+.hero-stats h3 {
+    font-size: 36px;
+    color: #F4C542;
+    margin-bottom: 5px;
+}
+
+.hero-stats p {
+    font-size: 16px;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.hero-stats > div:not(:last-child) {
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+    padding-right: 50px;
+}
+
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #1646a3;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        /* SECTIONS */
+
+        section {
+            padding: 90px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            color: #123d91;
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            color: #666;
+        }
+
+        /* CARDS */
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            width: 300px;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card .icon {
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: #123d91;
+        }
+
+        .card p {
+            line-height: 1.6;
+            color: #666;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #123d91;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 18px 5%;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            section {
+                padding: 70px 5%;
+            }
+        }
+        .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.gallery img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.03);
+}
+    </style>
+</head>
+
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <div class="logo">
+            TIMES COLLEGE
+        </div>
+
+        <ul class="nav-links">
+
+            <li><a href="#home" class="active">Home</a></li>
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#courses">Courses</a>
+            </li>
+
+            <li>
+                <a href="#projects">Projects</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- HOME -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="welcome">WELCOME TO</div>
+
+        <h1>TIMES COLLEGE</h1>
+
+        <p class="hero-description">
+            Empowering Students, Building the Future
+        </p>
+
+        <p class="hero-text">
+            Membina generasi berilmu, berkemahiran dan
+            bersedia menghadapi cabaran dunia masa kini.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#courses" class="btn">
+                Explore Courses
+            </a>
+
+            <a href="#about" class="btn btn-outline">
+                Learn More
+            </a>
+        </div>
+
+        <div class="hero-stats">
+
+            <div>
+                <h3>10+</h3>
+                <p>Courses</p>
+            </div>
+
+            <div>
+                <h3>500+</h3>
+                <p>Students</p>
+            </div>
+
+            <div>
+                <h3>20+</h3>
+                <p>Years Experience</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+    <!-- ABOUT -->
+
+    <section id="about">
+
+        <div class="section-title">
+
+            <h2>About Times College</h2>
+
+            <p>
+                Mengenali Times College dengan lebih dekat.
+            </p>
+
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <img src="images/images.jpg" alt="Times College">
+
+                <div class="icon">🏫</div>
+                
+
+                <h3>Our College</h3>
+
+                <p>
+                    Times College menyediakan persekitaran
+                    pembelajaran yang membantu pelajar
+                    membina kemahiran untuk masa hadapan.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">🎯</div>
+
+                <h3>Our Mission</h3>
+
+                <p>
+                    Membantu pelajar membangunkan ilmu,
+                    kemahiran dan pengalaman melalui
+                    pembelajaran berkualiti.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">🚀</div>
+
+                <h3>Our Vision</h3>
+
+                <p>
+                    Melahirkan generasi pelajar yang
+                    berpengetahuan, kreatif dan bersedia
+                    menghadapi dunia kerjaya.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- COURSES -->
+
+    <section id="courses">
+
+        <div class="section-title">
+
+            <h2>Our Courses</h2>
+
+            <p>
+                Program yang ditawarkan.
+            </p>
+
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="icon">💻</div>
+
+                <h3>Information Technology</h3>
+
+                <p>
+                    Pelajari teknologi komputer,
+                    networking, programming dan sistem
+                    maklumat.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">🌐</div>
+
+                <h3>Software Development</h3>
+
+                <p>
+                    Membina aplikasi dan sistem menggunakan
+                    teknologi pembangunan perisian moden.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">🔧</div>
+
+                <h3>Computer Networking</h3>
+
+                <p>
+                    Pelajari rangkaian komputer,
+                    cabling, network configuration dan
+                    troubleshooting.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+
+    <section id="projects">
+
+        <div class="section-title">
+
+            <h2>Student Projects</h2>
+
+            <p>
+                Projek dan hasil kerja pelajar.
+            </p>
+
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="icon">📱</div>
+
+                <h3>Mobile Application</h3>
+
+                <p>
+                    Projek aplikasi mudah alih yang
+                    dibangunkan oleh pelajar.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">🌐</div>
+
+                <h3>Website Development</h3>
+
+                <p>
+                    Projek pembangunan website dan
+                    sistem web interaktif.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">🤖</div>
+
+                <h3>Technology Project</h3>
+
+                <p>
+                    Projek teknologi dan inovasi yang
+                    dihasilkan oleh pelajar.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- GALLERY -->
+
+<section id="gallery">
+
+    <div class="section-title">
+
+        <h2>Gallery</h2>
+
+        <p>
+            Koleksi gambar Times College.
+        </p>
+
+    </div>
+
+    <div class="gallery">
+
+        <img src="images/missemalin.jpeg" alt="Times College">
+
+        <img src="images/college2.jpg" alt="Times College">
+
+        <img src="images/college3.jpg" alt="Times College">
+
+    </div>
+
+</section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+
+        <div class="section-title">
+
+            <h2>Contact Us</h2>
+
+            <p>
+                Hubungi Times College untuk maklumat lanjut.
+            </p>
+
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="icon">📍</div>
+
+                <h3>Location</h3>
+
+                <p>
+                    Times College
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">📧</div>
+
+                <h3>Email</h3>
+
+                <p>
+                    info@timescollege.edu
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">📞</div>
+
+                <h3>Phone</h3>
+
+                <p>
+                    +60 XX-XXXX XXXX
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 Times College. All Rights Reserved.
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
